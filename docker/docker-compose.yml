@@ -1,0 +1,13 @@
+version: "3.3"
+services:
+  nuxt:
+    image: node:${NODE_VERSION}
+    environment:
+      YARN_VERSION: ${YARN_VERSION}
+    ports:
+      - '${LOCAL_PORT}:3000'
+    volumes:
+      - '../:/project/nuxt-ts-sample'
+    working_dir: /project/nuxt-ts-sample
+    command: >
+      sh -c './bin/setup.sh && ./bin/serve.sh'
